@@ -1,0 +1,22 @@
+package by.ivan101454.doner_papa.util;
+
+import by.ivan101454.doner_papa.entities.Ingredient;
+import by.ivan101454.doner_papa.entities.Ingredient.Type;
+import org.springframework.core.convert.converter.Converter;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class IngredientByIdConverter implements Converter<String, Ingredient> {
+
+    private Map<String, Ingredient> ingredientMap = new HashMap<>();
+
+    public IngredientByIdConverter() {
+        ingredientMap.put("FLTO", new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
+        ingredientMap.put("COTO", new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
+        ingredientMap.put("GRBF", new Ingredient("GRBF", "Ground Beef", Type.PROTEIN));
+        ingredientMap.put("CARN", new Ingredient("CARN", "Carnitas", Type.PROTEIN));
+        ingredientMap.put("TMTO", new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES));
+        ingredientMap.put("TMTO", new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES));
+    }
+}
