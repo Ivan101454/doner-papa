@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Papa &ndash; Donner</title>
+    <link rel="stylesheet" data-th-href="@{/css/styles.css}"/>
+</head>
+<body>
+    <form method="post" data-th-action="@{/orders}" data-th-object="${tacoOrder}">
+        <h1>Design your shawerma</h1>
+        <img data-th-src="@{/images/papa-donner.png}">
+        <h3>Your shawerma in this order</h3>
+        <a data-th-href="@{/design}" id="another">Design another shawerma</a><br>
+        <ul>
+            <li data-th-each="taco : ${tacoOrder.tacos}">
+                <span data-th-text="${taco.name}">taco name</span></li>
+        </ul>
+        <h3>Deliver my taco masterpiece to...</h3>
+        <label for="deliveryName">Name: </label>
+        <input type="text" data-th-field="*{deliveryName}" />
+        <br>
+
+        <label for="deliveryStreet">Street adress: </label>
+        <input type="text" data-th-field="*{deliveryStreet}" />
+        <br>
+
+        <label for="deliveryCity">City: </label>
+        <input type="text" data-th-field="*{deliveryCity}" />
+        <br>
+
+        <label for="deliveryState">State: </label>
+        <input type="text" data-th-field="*{deliveryState}" />
+        <br>
+
+        <label for="deliveryZip">Zip code: </label>
+        <input type="text" data-th-field="*{deliveryZip}" />
+        <br>
+
+        <h3>Here's how I'll pay...</h3>
+        <label for="ccNumber">Credit Card #: </label>
+        <input type="text" data-th-field="*{ccNumber}">
+        <br>
+
+        <label for="ccExpiration">Expiration: </label>
+        <input type="text" data-th-field="*{ccExpiration}">
+        <br>
+
+        <label for="ccCVV">CVV: </label>
+        <input type="text" data-th-field="*{ccCVV}">
+        <br>
+
+        <input type="submit" value="Submit order">
+    </form>
+</body>
+</html>
