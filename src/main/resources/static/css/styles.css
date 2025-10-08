@@ -9,7 +9,7 @@ div.ingredient-group:nth-child(even) {
 }
 
 div.ingredient-group {
-    width: 50%;
+    width: 30%;
 }
 
 .grid:after {
@@ -26,4 +26,28 @@ div.ingredient-group {
 
 span.validationError {
     color: red;
+}
+
+body {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo-text {
+    margin: 0;
+}
+
+.logo-img {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #FFFFFF;
+    object-fit: contain;
 }

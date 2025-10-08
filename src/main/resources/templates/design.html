@@ -6,8 +6,12 @@
     <link rel="stylesheet" data-th-href="@{/css/styles.css}"/>
 </head>
 <body>
-    <h1>Design your shawerma</h1>
-    <img data-th-src="@{/images/papa-donner.png}">
+<div class="logo">
+    <div class="logo-text">
+        <h1>Design your shawerma</h1>
+    </div>
+        <img class="logo-img" data-th-src="@{/images/papa-donner.png}">
+</div>
 
     <form method="post" data-th-object="${taco}">
         <div class="grid">
