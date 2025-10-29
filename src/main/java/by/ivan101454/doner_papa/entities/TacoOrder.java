@@ -6,11 +6,19 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class TacoOrder {
+public class TacoOrder implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private Long id;
+
+    private LocalDate placedAt;
 
     @NotBlank(message = "{customer.order.assemble.errors.name_delivery_is_blank}")
     private String deliveryName;

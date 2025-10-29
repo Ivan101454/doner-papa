@@ -1,3 +1,6 @@
 spring:
   application:
     name: doner-papa
+  datasource:
+    generate-unique-name: false
+    name: shawacloud

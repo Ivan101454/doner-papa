@@ -4,10 +4,15 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
 public class Taco {
+
+    private Long id;
+
+    private LocalDate createAt;
 
     @NotNull(message = "{customer.order.assemble.errors.name_is_null}")
     @Size(min = 5, message = "{customer.order.assemble.errors.name_is_less_five}")
