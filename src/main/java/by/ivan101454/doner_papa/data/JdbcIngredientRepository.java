@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class JdbcIngredientRepository implements IngredientRepository {
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     @Override
     public Iterable<Ingredient> findAll() {
