@@ -1,7 +1,9 @@
 package by.ivan101454.doner_papa.controllers;
 
+import by.ivan101454.doner_papa.data.OrderRepository;
 import by.ivan101454.doner_papa.entities.TacoOrder;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -15,7 +17,10 @@ import org.springframework.web.bind.support.SessionStatus;
 @Controller
 @RequestMapping("/orders")
 @SessionAttributes("tacoOrder")
+@RequiredArgsConstructor
 public class OrderController {
+
+    private final OrderRepository orderRepository;
 
     @GetMapping("/current")
     public String orderForm() {
@@ -28,6 +33,7 @@ public class OrderController {
         if (errors.hasErrors()) {
             return "orderForm";
         }
+        orderRepository.save(order);
         log.info("Order submitted {}", order);
         sessionStatus.setComplete();
 
