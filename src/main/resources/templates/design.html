@@ -65,6 +65,8 @@
         <div>
             <h3>Name your taco creation:</h3>
             <input type="text" data-th-field="*{name}" />
+            <span class="validationError" data-th-if="${#fields.hasErrors('name')}"
+                  data-th-errors="*{name}">name ERROR</span>
             <br>
             <button>Submit Your Shawerma</button>
         </div>
