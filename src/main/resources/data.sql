@@ -1,25 +1,25 @@
-DELETE FROM Ingredient_Ref;
-DELETE FROM Taco;
-DELETE FROM Taco_Order;
-DELETE FROM Ingredient;
-
-INSERT INTO Ingredient(id, name, type)
-VALUES ('FLTO', 'Flour Tortilla', 'WRAP');
-INSERT INTO Ingredient(id, name, type)
-VALUES ('COTO', 'Corn Tortilla', 'WRAP');
-INSERT INTO Ingredient(id, name, type)
-VALUES ('GRBF', 'Ground Beef', 'PROTEIN');
-INSERT INTO Ingredient(id, name, type)
-VALUES ('CARN', 'Carnitas', 'PROTEIN');
-INSERT INTO Ingredient(id, name, type)
-VALUES ('TMTO', 'Diced Tomatoes', 'VEGGIES');
-INSERT INTO Ingredient(id, name, type)
-VALUES ('LETC', 'Lettuce', 'VEGGIES');
-INSERT INTO Ingredient(id, name, type)
-VALUES ('CHED', 'Cheddar', 'CHEESE');
-INSERT INTO Ingredient(id, name, type)
-VALUES ('JACK', 'Monterrey Jack', 'CHEESE');
-INSERT INTO Ingredient(id, name, type)
-VALUES ('SLSA', 'Salsa', 'SAUCE');
-INSERT INTO Ingredient(id, name, type)
-VALUES ('SRCR', 'Sour Cream', 'SAUCE');
+-- DELETE FROM Ingredient_Ref;
+-- DELETE FROM Taco;
+-- DELETE FROM Taco_Order;
+-- DELETE FROM Ingredient;
+--
+-- INSERT INTO Ingredient(id, name, type)
+-- VALUES ("FLTO", "Flour Tortilla", Type.WRAP);
+-- INSERT INTO Ingredient(id, name, type)
+-- VALUES ("COTO", "Corn Tortilla", Type.WRAP);
+-- INSERT INTO Ingredient(id, name, type)
+-- VALUES ("GRBF", "Ground Beef", Type.PROTEIN);
+-- INSERT INTO Ingredient(id, name, type)
+-- VALUES ("CARN", "Carnitas", Type.PROTEIN);
+-- INSERT INTO Ingredient(id, name, type)
+-- VALUES ("TMTO", "Diced Tomatoes", Type.VEGGIES);
+-- INSERT INTO Ingredient(id, name, type)
+-- VALUES ("LETC", "Lettuce", Type.VEGGIES);
+-- INSERT INTO Ingredient(id, name, type)
+-- VALUES ("CHED", "Cheddar", Type.CHEESE);
+-- INSERT INTO Ingredient(id, name, type)
+-- VALUES ("JACK", "Monterrey Jack", Type.CHEESE);
+-- INSERT INTO Ingredient(id, name, type)
+-- VALUES ("SLSA", "Salsa", Type.SAUCE);
+-- INSERT INTO Ingredient(id, name, type)
+-- VALUES ("SRCR", "Sour Cream", Type.SAUCE);

@@ -43,7 +43,7 @@
             </div>
 
 
-            <div class="ingredient-group" id="veggies">
+            <div class="ingredient-group" id=Type.VEGGIES>
                 <h3>Determine your veggies:</h3>
                 <div data-th-each="ingredient : ${veggies}">
                     <input data-th-field="*{ingredients}" type="checkbox"
@@ -65,7 +65,7 @@
         <div>
             <h3>Name your taco creation:</h3>
             <input type="text" data-th-field="*{name}" />
-            <span class="validationError" data-th-if="${#fields.hasErrors('name')}"
+            <span class="validationError" data-th-if="${#fields.hasErrors("name")}"
                   data-th-errors="*{name}">name ERROR</span>
             <br>
             <button>Submit Your Shawerma</button>
