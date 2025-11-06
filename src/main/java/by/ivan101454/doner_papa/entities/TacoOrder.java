@@ -1,69 +1,63 @@
 package by.ivan101454.doner_papa.entities;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import com.datastax.oss.driver.api.core.uuid.Uuids;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.cassandra.core.mapping.Column;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
-@Table(name = "Taco_Order")
-@Entity
+@Table(value = "orders")
 public class TacoOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
-    @Column(name = "placed_at")
+    @PrimaryKey
+    @Column(value = "id")
+    private UUID id = Uuids.timeBased();
+    @Column(value = "placed_at")
     private LocalDate placedAt = LocalDate.now();
     @NotBlank(message = "{customer.order.assemble.errors.name_delivery_is_blank}")
-    @Column(name = "delivery_Name")
+    @Column(value = "delivery_Name")
     private String deliveryName;
     @NotBlank(message = "{customer.order.assemble.errors.street_is_blank}")
-    @Column(name = "delivery_Street")
+    @Column(value = "delivery_Street")
     private String deliveryStreet;
     @NotBlank(message = "{customer.order.assemble.errors.city_is_blank}")
-    @Column(name = "delivery_City")
+    @Column(value = "delivery_City")
     private String deliveryCity;
     @NotBlank(message = "{customer.order.assemble.errors.state_is_blank}")
-    @Column(name = "delivery_State")
+    @Column(value = "delivery_State")
     private String deliveryState;
     @NotBlank(message = "{customer.order.assemble.errors.zip_is_blank}")
-    @Column(name = "delivery_Zip")
+    @Column(value = "delivery_Zip")
     private String deliveryZip;
     @CreditCardNumber(message = "{customer.order.assemble.errors.credit_card_number_is_not_valid}")
-    @Column(name = "cc_number")
+    @Column(value = "cc_number")
     private String ccNumber;
     @Pattern(regexp= "^(0[1-9]|1[0-2])([/])([2-9][0-9])$", message = "{customer.order.assemble.errors.credit_card_date_in_wrong_format}")
-    @Column(name = "cc_expiration")
+    @Column(value = "cc_expiration")
     private String ccExpiration;
     @Digits(integer = 3, fraction = 0, message = "{customer.order.assemble.errors.credit_invalid_cvv}")
-    @Column(name = "cc_cvv")
+    @Column(value = "cc_cvv")
     private String ccCVV;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Taco> tacos = new ArrayList<>();
+    @Column(value = "tacos")
+    private List<TacoUDT> tacos = new ArrayList<>();
 
-    public void addTaco(Taco taco) {
+    public void addTaco(TacoUDT taco) {
         tacos.add(taco);
     }
 }

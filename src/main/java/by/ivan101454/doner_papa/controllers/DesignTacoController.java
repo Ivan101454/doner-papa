@@ -5,6 +5,8 @@ import by.ivan101454.doner_papa.entities.Ingredient;
 import by.ivan101454.doner_papa.entities.Ingredient.Type;
 import by.ivan101454.doner_papa.entities.Taco;
 import by.ivan101454.doner_papa.entities.TacoOrder;
+import by.ivan101454.doner_papa.entities.TacoUDT;
+import by.ivan101454.doner_papa.util.TacoUDRUtils;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -63,7 +65,8 @@ public class DesignTacoController {
         if (errors.hasErrors()) {
             return "design";
         }
-        tacoOrder.addTaco(taco);
+        log.info("Processing taco, {}", taco);
+        tacoOrder.addTaco(new TacoUDT(taco.getName(), taco.getIngredients()));
         log.info("Processing taco, {}", taco);
 
         return "redirect:/orders/current";

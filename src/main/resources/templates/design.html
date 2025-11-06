@@ -67,6 +67,8 @@
             <input type="text" data-th-field="*{name}" />
             <span class="validationError" data-th-if="${#fields.hasErrors('name')}"
                   data-th-errors="*{name}">name ERROR</span>
+            <span class="validationError" data-th-if="${#fields.hasErrors('ingredients')}"
+                  data-th-errors="*{ingredients}">Ингредиенты не выбраны</span>
             <br>
             <button>Submit Your Shawerma</button>
         </div>
